@@ -3,6 +3,10 @@
     margin-top: 10px
 }
 
+#Question1 {
+    display: none;
+}
+
 #Question2 {
     display: none;
 }
