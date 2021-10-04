@@ -89,7 +89,7 @@ function countdown() {
 correctFive.addEventListener('click', function () {
     finalScore.style.display = "block";
     questionFive.style.display = "none";
-    clearInterval(timeInterval)
+    clearInterval(timeInterval);
 }
 )
 
