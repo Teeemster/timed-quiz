@@ -70,9 +70,9 @@ correctFour.addEventListener('click', function () {
 }
 )
 
-//Timer
+//Start Timer
 function countdown() {
-    var timeInterval = setInterval(function () {
+    setInterval(function () {
         if (timeLeft > 0) {
             timerEl.textContent = timeLeft + " seconds remaining."
             timeLeft--;
@@ -87,14 +87,15 @@ function countdown() {
         , 1000);
 }
 
-//Time End Function
+//Stop the Timer and Clear It
 function stopCountdown() {
-    var timeStop = setInterval(function () {
-        clearInterval(timeStop)
-    }
-        , 1000);
-    timerEl.textContent = ""
+    clearInterval(timeInterval);
+    timerEl.innerText = "";
+    displayMessage();
 }
+
+//Collect the Score
+localStorage.setItem('timeLeft', JSON.stringify([timeLeft]));
 
 
 //Show Final Score and Stop Timer
@@ -105,7 +106,7 @@ correctFive.addEventListener('click', function () {
 }
 )
 
-//Show High Score
+//Show High Score and Make Timer Go Away
 highScoreButton.addEventListener('click', function () {
     highScore.style.display = "block";
     finalScore.style.display = "none";
@@ -113,6 +114,3 @@ highScoreButton.addEventListener('click', function () {
 )
 
 highScore.innerText = playerName + " scored " + timeLeft + " !"
-
-//Winning Scores
-localStorage.setItem('timeLeft', JSON.stringify([timeLeft]));
