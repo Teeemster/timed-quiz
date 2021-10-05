@@ -93,7 +93,7 @@ function stopCountdown() {
         clearInterval(timeStop)
     }
         , 1000);
-    timeInterval.textContent = ""
+    timerEl.textContent = ""
 }
 
 
