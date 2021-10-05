@@ -1,8 +1,9 @@
 //VARIABLES
 
 //Timer Vars
-var timeLeft = 100
+var timeLeft = 100;
 var timerEl = document.getElementById('countdown');
+var timeInterval;
 
 //Start ID
 var startButton = document.getElementById('Start');
@@ -29,6 +30,7 @@ var questionFive = document.getElementById('Question5');
 var finalScore = document.getElementById('FinalScore')
 var highScore = document.getElementById('HighScore')
 var highScoreButton = document.getElementById('HighScoreButton')
+var playerName = document.getElementById('Name')
 
 //ALL FUNCTIONS
 
@@ -85,11 +87,21 @@ function countdown() {
         , 1000);
 }
 
-//Show Final Score
+//Time End Function
+function stopCountdown() {
+    var timeStop = setInterval(function () {
+        clearInterval(timeStop)
+    }
+        , 1000);
+    timeInterval.textContent = ""
+}
+
+
+//Show Final Score and Stop Timer
 correctFive.addEventListener('click', function () {
     finalScore.style.display = "block";
     questionFive.style.display = "none";
-    clearInterval(timeInterval);
+    stopCountdown();
 }
 )
 
@@ -100,6 +112,7 @@ highScoreButton.addEventListener('click', function () {
 }
 )
 
+highScore.innerText = playerName + " scored " + timeLeft + " !"
 
 //Winning Scores
 localStorage.setItem('timeLeft', JSON.stringify([timeLeft]));
