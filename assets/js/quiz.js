@@ -121,7 +121,7 @@ highScoreButton.addEventListener('click', function () {
 }
 )
 
-highScore.innerText = playerName + " scored " + timeLeft + " !"
+var endGame = JSON.parse(localStorage.getItem('timeLeft'))
+var endName = JSON.parse(localStorage.getItem('playerName'))
 
-localStorage.getItem("playerName");
-localStorage.getItem("timeLeft");
+highScore.innerText = endName + " scored " + endGame + " !"
