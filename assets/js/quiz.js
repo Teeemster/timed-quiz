@@ -5,11 +5,11 @@ var timeLeft = 100;
 var timerEl = document.getElementById('countdown');
 var timeInterval;
 
-//Start ID
+//Start Button ID's
 var startButton = document.getElementById('Start');
 var welcomeInfo = document.getElementById('Welcome');
 
-//Correct Answer ID's
+//Correct Button Answer ID's
 var correctOne = document.getElementById('Correct1');
 var correctTwo = document.getElementById('Correct2');
 var correctThree = document.getElementById('Correct3');
@@ -27,13 +27,15 @@ var questionFour = document.getElementById('Question4');
 var questionFive = document.getElementById('Question5');
 
 //High Score ID's
-var finalScore = document.getElementById('FinalScore')
-var highScore = document.getElementById('HighScore')
-var highScoreButton = document.getElementById('HighScoreButton')
-var playerName = document.getElementById('Name')
+var finalScore = document.getElementById('FinalScore');
+var highScore = document.getElementById('HighScore');
+var highScoreButton = document.getElementById('HighScoreButton');
+
+//Collect The Name
+
+var playerName = window.prompt("Welcome to the Code Quiz! What is your Name?")
 
 //ALL FUNCTIONS
-
 //Show Question 1
 startButton.addEventListener('click', function () {
     questionOne.style.display = "block";
@@ -70,9 +72,12 @@ correctFour.addEventListener('click', function () {
 }
 )
 
+//Wrong Answer Deduction
+// wrongSubtract.addEventListener('click', function() {timeleft = timeleft - 10;})
+
 //Start Timer
 function countdown() {
-    setInterval(function () {
+    timeInterval = setInterval(function () {
         if (timeLeft > 0) {
             timerEl.textContent = timeLeft + " seconds remaining."
             timeLeft--;
@@ -87,16 +92,18 @@ function countdown() {
         , 1000);
 }
 
-//Stop the Timer and Clear It
+//Stop the Timer and Collect the Score
 function stopCountdown() {
     clearInterval(timeInterval);
-    timerEl.innerText = "";
-    displayMessage();
+    timerEl.innerText = "Final Score: " + timeLeft + ". Great job!";
+    localStorage.setItem('timeLeft', JSON.stringify([timeLeft]));
+    localStorage.setItem('playerName', JSON.stringify([playerName]));
 }
 
-//Collect the Score
-localStorage.setItem('timeLeft', JSON.stringify([timeLeft]));
-
+//Clear the Timer
+function clearTimer() {
+    timerEl.innerText = "";
+}
 
 //Show Final Score and Stop Timer
 correctFive.addEventListener('click', function () {
@@ -110,7 +117,11 @@ correctFive.addEventListener('click', function () {
 highScoreButton.addEventListener('click', function () {
     highScore.style.display = "block";
     finalScore.style.display = "none";
+    clearTimer();
 }
 )
 
 highScore.innerText = playerName + " scored " + timeLeft + " !"
+
+localStorage.getItem("playerName");
+localStorage.getItem("timeLeft");
