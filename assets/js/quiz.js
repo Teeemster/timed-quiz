@@ -48,7 +48,6 @@ var questionFive = document.getElementById('Question5');
 //High Score ID's
 var finalScore = document.getElementById('FinalScore');
 var highScore = document.getElementById('HighScore');
-var highScoreList = document.querySelector('#highScores')
 var highScoreButton = document.getElementById('HighScoreButton');
 
 //Collect The Name
@@ -136,10 +135,8 @@ function stopCountdown() {
     clearInterval(timeInterval);
     timerEl.innerText = "Final Score: " + timeLeft + ". Great job!";
 
-    var newData = {
-        Name: playerName,
-        Score: timeLeft
-    }
+    var newData = "Name: " + playerName + " and Score: " + timeLeft
+    
 
     if (localStorage.getItem('Score') == null) {
         localStorage.setItem('Score', '[]');
@@ -177,6 +174,14 @@ highScoreButton.addEventListener('click', function () {
 //Show the Scoreboard
 function Scoreboard() {
     if (localStorage.getItem('Score') != null) {
-        highScoreList.innerHTML = JSON.parse(localStorage.getItem('Score'))
+        var highScoreArray = JSON.parse(localStorage.getItem('Score')) || [];
+        console.log(highScoreArray)
+        
+        for (var i = 0; i < highScoreArray.length; i++) {
+            var highScoreList = document.querySelector('#highScores');
+            var highScoreEl = document.createElement('li');
+            highScoreEl.textContent = highScoreList[i];
+            highScoreList.appendChild(highScoreEl);
+        }
     }
 }
