@@ -48,7 +48,10 @@ var questionFive = document.getElementById('Question5');
 //High Score ID's
 var finalScore = document.getElementById('FinalScore');
 var highScore = document.getElementById('HighScore');
+var highScores = document.getElementById('highScores');
 var highScoreButton = document.getElementById('HighScoreButton');
+var clearScoreButton = document.getElementById('ClearScore')
+var tryAgain = document.getElementById('TryAgain')
 
 //Collect The Name
 
@@ -133,9 +136,9 @@ function countdown() {
 //Stop the Timer and Collect the Score
 function stopCountdown() {
     clearInterval(timeInterval);
-    timerEl.innerText = "Final Score: " + timeLeft + ". Great job!";
+    timerEl.innerText = playerName + "'s" + " Final Score: " + timeLeft + ". Great job!";
 
-    var newData = "Name: " + playerName + " and Score: " + timeLeft
+    var newData = playerName + " played and receive a score of " + timeLeft + "."
     
 
     if (localStorage.getItem('Score') == null) {
@@ -180,8 +183,22 @@ function Scoreboard() {
         for (var i = 0; i < highScoreArray.length; i++) {
             var highScoreList = document.querySelector('#highScores');
             var highScoreEl = document.createElement('li');
-            highScoreEl.textContent = highScoreList[i];
+            highScoreEl.textContent = highScoreArray[i]
+            console.log(highScoreEl.textContent);
             highScoreList.appendChild(highScoreEl);
         }
     }
 }
+
+//Clear Scores
+clearScoreButton.addEventListener('click', function () {
+    localStorage.clear();
+    highScores.innerText = "";
+}
+);
+
+//Try Again
+tryAgain.addEventListener('click', function () {
+    window.location.reload();
+}
+);

@@ -1,26 +1,58 @@
 * {
     text-align: center;
-    margin-top: 10px
+    margin-top: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: whitesmoke;
+    text-shadow: 2px 2px rgb(214, 204, 204);
+    font-weight: bold;
+    font-size: x-large;
+}
+
+#Welcome {
+    border: solid 3px #024e76;
+    margin: 100px;
+}
+
+.QuizImage {
+    border-radius: 25px;
+    box-shadow: 5px 10px 15px black;
+}
+
+.PacMan {
+    border-radius: 25px;
+    box-shadow: 5px 10px 15px black;
+    width: 50%;
+    height: 50%;
 }
 
 #Question1 {
     display: none;
+    border: solid 3px #024e76;
+    margin: 100px;
 }
 
 #Question2 {
     display: none;
+    border: solid 3px #024e76;
+    margin: 100px;
 }
 
 #Question3 {
     display: none;
+    border: solid 3px #024e76;
+    margin: 100px;
 }
 
 #Question4 {
     display: none;
+    border: solid 3px #024e76;
+    margin: 100px;
 }
 
 #Question5 {
     display: none;
+    border: solid 3px #024e76;
+    margin: 100px;
 }
 
 #FinalScore {
@@ -29,5 +61,84 @@
 
 #HighScore {
     display: none;
+    border: solid 3px #024e76;
+    margin: 100px;
 }
 
+#highScores {
+    list-style: none;
+}
+
+/*Button Colors*/
+
+#Start {
+    background-color: #8e7cc3;
+    color: white;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px black;
+}
+
+#Start:focus {
+    background-color: #76ee00;
+}
+
+.Correct {
+    background-color: #8e7cc3;
+    color: white;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px black;
+}
+
+.Correct:focus {
+    background-color: #76ee00;
+}
+
+.Wrong {
+    background-color: #8e7cc3;
+    color: white;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px black;
+}
+
+.Wrong:focus {
+    background-color: #ff0000
+}
+
+#HighScoreButton {
+    background-color: #8e7cc3;
+    color: white;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px black;
+}
+
+#HighScoreButton:focus {
+    background-color: #76ee00;
+}
+
+#ClearScore {
+    background-color: #8e7cc3;
+    color: white;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px black;
+}
+
+#ClearScore:focus {
+    background-color: #76ee00;
+}
+
+#TryAgain {
+    background-color: #8e7cc3;
+    color: white;
+    text-shadow: none;
+    border-radius: 10px;
+    box-shadow: 1px 2px 3px black;
+}
+
+#TryAgain:focus {
+    background-color: #76ee00;
+}
